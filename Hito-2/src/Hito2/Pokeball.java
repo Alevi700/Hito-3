@@ -49,13 +49,15 @@ class Superball extends Pokeball{
 }
 
 class Ultraball extends Pokeball{
-	
+	double potencia = 0;
 	public Ultraball(int integridad, int probabilidad){
 		super(integridad, probabilidad);
 	}
-	
+	public double getPotencia() {
+		return potencia;
+	}
 	public String toString() {
-		return "Usando la Ultraball probabilidad de captura: " + getProbabilidad() + "%  |  integridad: " + getIntegridad();
+		return "Usando la Ultraball probabilidad de captura: " + getProbabilidad() + "%  |  integridad: " + getIntegridad() + " | potencia: " + getPotencia();
 	}
 }
 
@@ -65,6 +67,7 @@ class Masterball extends Pokeball{
 	public Masterball(int integridad, int probabilidad, double estabilidad){
 		super(integridad, probabilidad);
 		this.estabilidad = estabilidad;
+		this.integridad = 4;
 	}
 	
 	public double getEstabilidad() {
