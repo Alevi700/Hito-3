@@ -20,7 +20,7 @@ public class Pokemon {
 		return tipo;
 	}
 	public String toString() {
-		return "Pokemon: " + nombre + " Tipo: " + tipo;
+		return "Pokemon: " + nombre + " Tipo: " + tipo + " Velocidad: " + velocidad + " Experiencia: " + experiencia + " Salud: " + salud;
 	}
 	
 	public int getNivel() {
