@@ -37,7 +37,7 @@ public class Entrenador {
 	}
 	
 	public Pokemon[] capturarpokemon(Pokemon pokemon) {
-		if(pokemons[5] instanceof Pokemon) {
+		if(pokemons[5] instanceof Pokemon || indicepokeballs >= 6) {
 			System.out.println("No puedes llevar más pokemons");
 			return pokemons;
 		}
@@ -63,23 +63,7 @@ public class Entrenador {
 	
 		return pokemons;
 	}
-	
-	public int comprobarpokeball() {
 		
-			if(pokeballs[indicepokeballs] instanceof Pokeball) {
-				return 1;
-			}
-			else if (pokeballs[indicepokeballs] instanceof Superball) {
-				return 2;
-			}
-			else if (pokeballs[indicepokeballs] instanceof Ultraball) {
-				return 3;
-			}
-			else {
-			return 4;
-		}
-	}
-	
 	public Pokemon[] cap_pokeball(Pokemon pokemon, int aleatorio) {
 					System.out.println(pokeballs[indicepokeballs].toString());
 					pokeballs[indicepokeballs].setIntegridad(pokeballs[indicepokeballs].getIntegridad() - 4);
@@ -94,12 +78,13 @@ public class Entrenador {
 			return pokemons;
 		}
 	public Pokemon[] cap_superball(Pokemon pokemon, int aleatorio, Superball sp) {
-			sp.setIntegridad(sp.getIntegridad() - 4);
 			System.out.println(sp.toString());
+			sp.setIntegridad(sp.getIntegridad() - 4);
 			if(aleatorio <= sp.getProbabilidad()) {
 				System.out.println("¡Captura exitosa! " + pokemon.getNombre() + " ahora es tuyo");
 				pokemons[indicepokemons] = pokemon;
 				indicepokemons++;
+				indicepokeballs++;
 			}
 			else {
 				System.out.println("La captura de: " + pokemon.getNombre() + " ha fallado");
@@ -110,13 +95,13 @@ public class Entrenador {
 
 		}
 	public Pokemon[] cap_ultraball(Pokemon pokemon, int aleatorio, Ultraball ub) {
-		
-			ub.setIntegridad(ub.getIntegridad() - 4);
 			System.out.println(ub.toString());
+			ub.setIntegridad(ub.getIntegridad() - 4);
 			if(aleatorio <= ub.getProbabilidad()) {
 				System.out.println("¡Captura exitosa! " + pokemon.getNombre() + " ahora es tuyo");
 				pokemons[indicepokemons] = pokemon;
 				indicepokemons++;
+				indicepokeballs++;
 			}
 			else {
 				
