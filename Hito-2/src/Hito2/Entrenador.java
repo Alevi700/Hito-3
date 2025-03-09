@@ -37,12 +37,15 @@ public class Entrenador {
 	}
 	
 	public Pokemon[] capturarpokemon(Pokemon pokemon) {
-		if(pokemons[5] instanceof Pokemon || indicepokeballs >= 6) {
-			System.out.println("No puedes llevar más pokemons");
-			return pokemons;
+		if(indicepokeballs > 5) {
+			indicepokeballs = 5;
 		}
 		if(pokeballs[indicepokeballs].getIntegridad() <= 0) {
 			indicepokeballs++;
+		}
+		if(pokemons[5] instanceof Pokemon || indicepokeballs > 5) {
+			System.out.println("No puedes llevar más pokemons");
+			return pokemons;
 		}
 		int aleatorio = (int) (Math.random()*100);
 		
