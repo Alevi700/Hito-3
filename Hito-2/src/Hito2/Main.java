@@ -1,5 +1,6 @@
 package Hito2;
-
+import java.util.ArrayList;
+import java.util.Arrays;
 public class Main {
 
 	public static void main(String[] args) {
@@ -13,45 +14,28 @@ public class Main {
 		Pokemon Machop = new Pokemon("Machop", "Lucha", 1, 45, 0, 100);
 		Pokemon Abra = new Pokemon("Abra", "Psíquico", 1, 15, 0, 100);
 		Pokemon Onix = new Pokemon("Onix", "Roca", 1, 60, 0, 100);
+		ArrayList<Pokemon> Salvajes = new ArrayList<>(Arrays.asList(
+			Pikachu,Bulbasaur,Charmander, Squirtle, Jigglypuff, Geodude, Machop, Abra, Onix
+		));
+
+		for(Pokemon pok : Salvajes){
+			System.out.println(pok.toString());
+		}
 		
-		Imprimirpokemons(Pikachu.toString(), Bulbasaur.toString(), Charmander.toString(), Squirtle.toString(), Jigglypuff.toString() , Geodude.toString(), Machop.toString(), Abra.toString(), Onix.toString());
 		System.out.println("== Capturas ==");
-		entrenador.capturarpokemon(Pikachu);
-		entrenador.capturarpokemon(Bulbasaur);
-		entrenador.capturarpokemon(Charmander);
-		entrenador.capturarpokemon(Squirtle);
-		entrenador.capturarpokemon(Jigglypuff);
-		entrenador.capturarpokemon(Geodude);
-		entrenador.capturarpokemon(Machop);
-		entrenador.capturarpokemon(Abra);
-		entrenador.capturarpokemon(Onix);
+		for(Pokemon pok : Salvajes){
+			entrenador.capturarpokemon(pok);
+		}
 		
 		System.out.println("El entrenador" + entrenador.getNombre() + " tiene los siguientes pokemons capturados:");
-		for(int i = 0; i < entrenador.getPokemons().length; i++) {
-			if(!(entrenador.getPokemons()[i] instanceof Pokemon)) {
-				break;
+		for(int i = 0; i < entrenador.getequipoPokemons().length; i++) {
+			if(!(entrenador.getequipoPokemons()[i] instanceof Pokemon)) {
+				continue;
 			}
-			System.out.println(entrenador.getPokemons()[i].toString());
+			System.out.println(entrenador.getequipoPokemons()[i].toString());
 		}
 
 		
 		}//fin main
-		
-		public static void Imprimirpokemons(String infoPikachu, String infoBulbasaur, String infoCharmander, String infoSquirtle, String infoJigglypuff, String infoGeodude, String infoMachop, String infoAbra, String infoOnix) {
-			System.out.println("== Información pokemons ==");
-			System.out.println(infoPikachu);
-			System.out.println(infoBulbasaur);
-			System.out.println(infoCharmander);
-			System.out.println(infoSquirtle);
-			System.out.println(infoJigglypuff);
-			System.out.println(infoGeodude);
-			System.out.println(infoMachop);
-			System.out.println(infoAbra);
-			System.out.println(infoOnix);
-
-		
-//ñya
 	}
-		
-}
 //fin class
